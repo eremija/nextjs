@@ -1,0 +1,10 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest-browsers
+
+    steps:
+      # Checkout the git repo
+      - checkout
+      - run: echo "Hello world!"
