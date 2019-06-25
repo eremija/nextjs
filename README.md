@@ -106,3 +106,5 @@ We are now ready to deploy the app.
 ```
 now
 ```
+
+### Test CircleCI build with a PR
