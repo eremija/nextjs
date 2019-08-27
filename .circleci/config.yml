@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  test1:
     docker:
       - image: circleci/python:latest
 
@@ -16,7 +16,7 @@ jobs:
             chmod +x /usr/local/bin/docker-compose
 
 
-  test:
+  test2:
     docker:
       - image: circleci/python:latest
     steps:
@@ -31,5 +31,5 @@ workflows:
   version: 2
   api-build:
     jobs:
-      - test
-      - build
+      - test1
+      - test2
