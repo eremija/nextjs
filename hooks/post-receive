@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCH=master
+BRANCH="master"
 
 #target_branch="master"
 #working_tree="PATH_TO_DEPLOY"
