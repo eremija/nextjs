@@ -1,8 +1,17 @@
 #!/bin/bash
 
+BRANCH=master
+
 echo "Running the job using CircleCI API..."
 
-curl -u fa99e0d24aea48217e311f015cb7999f5d086b0d: \
-     -d build_parameters[CIRCLE_JOB]=test1 \
-     https://circleci.com/api/v1.1/project/github/eremija/nextjs/tree/master &&
-echo "`date +%m-%d-%Y`" > ../VERSION
+while read oldrev newrev ref
+do
+    # only checking out the master (or whatever branch you would like to deploy)
+    if [[ $ref = refs/heads/$BRANCH ]];
+    then
+        curl -u fa99e0d24aea48217e311f015cb7999f5d086b0d: -d build_parameters[CIRCLE_JOB]=test1 https://circleci.com/api/v1.1/project/github/eremija/nextjs/tree/master &&
+        echo "`date +%m-%d-%Y`" > ../VERSION
+    else
+        echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
+    fi
+done
