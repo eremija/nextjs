@@ -33,8 +33,8 @@ workflows:
             tags:
               only:
                 - v1.0.0
-      - test2:
-          filters:
-            tags:
-              only:
-                - v1.0.1
+      - test2
+#          filters:
+#            tags:
+#              only:
+#                - v1.0.1
