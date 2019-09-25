@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Test1 
           command: |
-                   echo "Hello from job test1"
+                   echo "Hello from job test one"
 
   test2:
     docker:
