@@ -30,5 +30,9 @@ workflows:
           filters:
             tags:
               only:
-                - /^v.*/
-      - test2
+                - v1.0.0
+      - test2:
+          filters:
+            tags:
+              only:
+                - v1.0.1
