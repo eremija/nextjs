@@ -1,6 +1,9 @@
 version: 2.1
 jobs:
   test1:
+    environment:
+      CIRCLE_TAG: v1.4.0
+
     docker:
       - image: circleci/python:latest
 
