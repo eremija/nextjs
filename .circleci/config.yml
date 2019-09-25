@@ -11,6 +11,10 @@ jobs:
           command: |
                    echo "Hello from job test one"
                    echo $CIRCLE_TAG
+      - run:
+          name: Test GH
+          command: |
+                   curl https://api.github.com/repos/eremija/nextjs/releases
 
   test2:
     docker:
