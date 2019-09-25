@@ -10,7 +10,7 @@ jobs:
           name: Test1 
           command: |
                    echo "Hello from job test one"
-                   echo $CIRCLE_TAG
+                   echo $CIRCLE_PROJECT_USERNAME
       - run:
           name: Test GH
           command: |
