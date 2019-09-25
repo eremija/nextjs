@@ -35,7 +35,7 @@ workflows:
       - test1:
           filters:
             tags:
-              only: /^v1\.[4-5]\.0/ 
+              only: /^v1\.4\.0/ 
       - test2
 #          filters:
 #            tags:
