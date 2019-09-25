@@ -10,6 +10,7 @@ jobs:
           name: Test1 
           command: |
                    echo "Hello from job test one"
+                   echo $CIRCLE_TAG
 
   test2:
     docker:
@@ -20,6 +21,7 @@ jobs:
           name: Test2
           command: |
                    echo "Hello from job test2"
+                   echo $CIRCLE_TAG
 
 
 workflows:
