@@ -1,9 +1,11 @@
 version: 2.1
+
+workspace_root: &workspace_root
+  /tmp/workspace
+  
+
 jobs:
   test1:
-    environment:
-      CIRCLE_TAG: v1.4.0
-
     docker:
       - image: circleci/python:latest
 
@@ -17,13 +19,29 @@ jobs:
       - run:
           name: Test GH
           command: |
-                   curl https://api.github.com/repos/eremija/nextjs/releases
+                   mkdir test 
+      - run:
+          name: Export CIRCLE_TAG for use in test2
+          command: |
+                   import urllib.request, json, os
+                   with urllib.request.urlopen("https://api.github.com/repos/eremija/nextjs/releases") as url:
+                       data = json.loads(url.read().decode())
+                       git_tag = data[0]["tag_name"]
+
+                   os.environ["CIRCLE_TAG"]=str(git_tag)
+
+      - persist_to_workspace:
+          root: *workspace_root
+          path: .
+
 
   test2:
     docker:
       - image: circleci/python:latest
     steps:
       - checkout
+      - attach_workspace:
+          at: *workspace_root
       - run:
           name: Test2
           command: |
