@@ -20,8 +20,8 @@ jobs:
       - run:
           name: Export CIRCLE_TAG for use in test2
           command: |
-                   mkdir -p /tmp/workspace
-                   cp releases.py /tmp/workspace/
+                   mkdir -p /tmp/workspace/python
+                   cp releases.py /tmp/workspace/python
                    python releases.py 
 
       - run:
@@ -31,7 +31,7 @@ jobs:
 
       - persist_to_workspace:
           root: *workspace_root
-          path: releases.py
+          path: python
 
   test2:
     docker:
