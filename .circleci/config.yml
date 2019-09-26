@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Export CIRCLE_TAG for use in test2
           command: |
-                   export $CIRLE_TAG=`git describe --tags --abbrev=0`
+                   export CIRLE_TAG=`git describe --tags --abbrev=0`
 
       - run:
           name: Check if CIRCLE_TAG is present
