@@ -19,7 +19,9 @@ jobs:
       - run:
           name: Export CIRCLE_TAG for use in test2
           command: |
-                   export CIRLE_TAG=`git describe --tags --abbrev=0`
+                   export CIRLE_TAG=`git describe --tags --abbrev=0` > .env
+                   mkdir -p /tmp/workspace/scripts
+                   cp .env /tmp/workspace/scripts
 
       - run:
           name: Check if CIRCLE_TAG is present
@@ -41,6 +43,7 @@ jobs:
           name: Test2
           command: |
                    echo "Hello from job test2"
+                   source .env
                    echo $CIRCLE_TAG
 
 
