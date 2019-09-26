@@ -10,16 +10,11 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: Test1 
-          command: |
-                   echo "Hello from job test one"
-                   echo $CIRCLE_PROJECT_USERNAME
       
       - run:
           name: Export CIRCLE_TAG for use in test2
           command: |
-                   export CIRLE_TAG=`git describe --tags --abbrev=0`
+                   export CIRCLE_TAG=`git describe --tags --abbrev=0`
                    mkdir -p /tmp/workspace/scripts
                    env | grep CIRCLE_TAG > .env
                    cp .env /tmp/workspace/scripts/
