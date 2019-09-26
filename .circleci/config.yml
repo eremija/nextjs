@@ -16,8 +16,7 @@ jobs:
           command: |
                    export CIRCLE_TAG=`git describe --tags --abbrev=0`
                    mkdir -p /tmp/workspace/scripts
-                   env | grep CIRCLE_TAG > .env
-                   cp .env /tmp/workspace/scripts/
+                   env | grep CIRCLE_TAG
 
       - run:
           name: Check if CIRCLE_TAG is present
