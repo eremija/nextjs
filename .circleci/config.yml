@@ -1,7 +1,7 @@
 version: 2.1
 
 workspace_root: &workspace_root
-  /tmp/workspace
+  /tmp
   
 
 jobs:
@@ -30,8 +30,7 @@ jobs:
 
       - persist_to_workspace:
           root: *workspace_root
-          path: .
-
+          path: workspace
 
   test2:
     docker:
