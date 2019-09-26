@@ -20,7 +20,13 @@ jobs:
       - run:
           name: Export CIRCLE_TAG for use in test2
           command: |
+                   mkdir -p /tmp/workspace
                    python releases.py 
+
+      - run:
+          name: Check if CIRCLE_TAG is present
+          command: |
+                   echo $CIRCLE_TAG
 
       - persist_to_workspace:
           root: *workspace_root
