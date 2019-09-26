@@ -2,7 +2,6 @@ version: 2.1
 
 workspace_root: &workspace_root
   /tmp/workspace
-  
 
 jobs:
   test1:
