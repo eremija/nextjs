@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Check if CIRCLE_TAG is present
           command: |
-                   env
+                   env | grep CIRCLE_TAG
 
       - persist_to_workspace:
           root: *workspace_root
