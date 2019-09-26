@@ -26,11 +26,11 @@ jobs:
       - run:
           name: Check if CIRCLE_TAG is present
           command: |
-                   echo $CIRCLE_TAG
+                   env | grep CIRCLE_TAG
 
       - persist_to_workspace:
           root: *workspace_root
-          path: scripts
+          paths: scripts
 
   test2:
     docker:
