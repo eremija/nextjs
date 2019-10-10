@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Identify build source
           command: |
-            if [ ${CIRCLECI_USERNAME} == '' ]; then
+            if [ "${CIRCLECI_USERNAME}" == "" ]; then
               echo "Triggered by publishing content on CMS."
             else
               echo "Normal build."
