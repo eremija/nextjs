@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 
 workspace_root: &workspace_root
   /tmp/workspace
@@ -10,6 +10,15 @@ jobs:
 
     steps:
       - checkout
+
+      - run:
+          name: Identify build source
+          command: |
+            if [ ${CIRCLECI_USERNAME} == '' ]; then
+              echo "Triggered by publishing content on CMS."
+            else
+              echo "Normal build."
+            fi
       
       - run:
           name: Export CIRCLE_TAG for use in test2
