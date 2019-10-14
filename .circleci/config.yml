@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Test2
           command: |
-                   echo "Hello from job test 2"
+                   echo "Hello from job test2"
                    source /tmp/workspace/scripts/.env
                    echo $CIRCLE_TAG
 
