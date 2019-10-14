@@ -19,6 +19,8 @@ jobs:
             else
               echo "Normal build."
             fi
+
+      - run: echo $UNIQUE_ID
       
       - run:
           name: Export CIRCLE_TAG for use in test2
