@@ -21,13 +21,13 @@ jobs:
             fi
 
       - run:
-        name: Verify the ENV var is present
-        command: | 
-          if [[ ! -z "$UNIQUE_ID" ]]; then 
-            echo $UNIQUE_ID
-          else
-            echo "UNIQUE_ID is not set."
-          fi
+          name: Verify the ENV var is present
+          command: | 
+            if [[ ! -z "$UNIQUE_ID" ]]; then 
+              echo $UNIQUE_ID
+            else
+              echo "UNIQUE_ID is not set."
+            fi
 
       - run:
           name: Export CIRCLE_TAG for use in test2
