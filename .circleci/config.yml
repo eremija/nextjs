@@ -20,7 +20,14 @@ jobs:
               echo "Normal build."
             fi
 
-      - run: echo $UNIQUE_ID
+      - run:
+        name: Verify the ENV var is present
+        command: | 
+         if [ ! -z "$UNIQUE_ID" ]; then 
+           echo $UNIQUE_ID
+         else
+           echo "UNIQUE_ID is not set."
+         fi
       
       - run:
           name: Export CIRCLE_TAG for use in test2
@@ -29,10 +36,10 @@ jobs:
                    mkdir -p /tmp/workspace/scripts
                    env | grep CIRCLE_TAG
 
-      - run:
-          name: Check if CIRCLE_TAG is present
-          command: |
-                   env | grep CIRCLE_TAG
+#      - run:
+#          name: Check if CIRCLE_TAG is present
+#          command: |
+#                   env | grep CIRCLE_TAG
 
       - persist_to_workspace:
           root: *workspace_root
