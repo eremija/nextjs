@@ -28,7 +28,7 @@ jobs:
           else
             echo "UNIQUE_ID is not set."
           fi
-      
+
       - run:
           name: Export CIRCLE_TAG for use in test2
           command: |
