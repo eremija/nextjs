@@ -23,7 +23,7 @@ jobs:
       - run:
         name: Verify the ENV var is present
         command: | 
-          if [ ! -z "$UNIQUE_ID" ]; then 
+          if [[ ! -z "$UNIQUE_ID" ]]; then 
             echo $UNIQUE_ID
           else
             echo "UNIQUE_ID is not set."
