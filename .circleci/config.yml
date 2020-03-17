@@ -22,7 +22,7 @@ jobs:
 
       - run:
           name: Verify the ENV var is present
-          command: | 
+          command: |
             if [ -z "${UNIQUE_ID}" ]; then
               echo "The value of the variables is: ${UNIQUE_ID}"
             else
@@ -58,8 +58,6 @@ jobs:
           name: Test2
           command: |
                    echo "Hello from job test2"
-                   source /tmp/workspace/scripts/.env
-                   echo $CIRCLE_TAG
 
 
 workflows:
@@ -69,7 +67,7 @@ workflows:
       - test1:
           filters:
             tags:
-              only: /^v1\.4\.0/ 
+              only: /^v1\.4\.0/
       - test2
 #          filters:
 #            tags:
