@@ -52,8 +52,6 @@ jobs:
       - image: circleci/python:latest
     steps:
       - checkout
-      - attach_workspace:
-          at: *workspace_root
       - run:
           name: Test2
           command: |
@@ -64,8 +62,16 @@ workflows:
   version: 2
   test1-test2:
     jobs:
-      - test1
-      - test2
+      - test1:
+          filters:
+            branches:
+              only:
+                - master
+      - test2:
+          filters:
+            branches:
+              only:
+                - production
 #          filters:
 #            tags:
 #              only:
