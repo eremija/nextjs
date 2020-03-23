@@ -46,11 +46,6 @@ jobs:
                    mkdir -p /tmp/workspace/scripts
                    env | grep CIRCLE_TAG
 
-#      - run:
-#          name: Check if CIRCLE_TAG is present
-#          command: |
-#                   env | grep CIRCLE_TAG
-
       - persist_to_workspace:
           root: *workspace_root
           paths: scripts
@@ -79,12 +74,12 @@ workflows:
   test2:
     when: << pipeline.parameters.triggered-by-cms >>
     jobs:
-      - test2
+      - test2:
+          filters:
+            branches:
+              only:
+                - production
   test1-test2:
     jobs:
       - test1
       - test2
-#          filters:
-#            tags:
-#              only:
-#                - v1.0.1
