@@ -8,9 +8,8 @@ parameters:
     type: boolean
     default: false
   branch:
-    type: enum
-    default: "production"
-    enum: ["master", "production"]
+    type: string
+    default: "master"
 
 jobs:
   test1:
