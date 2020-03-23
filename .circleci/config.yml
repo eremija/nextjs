@@ -57,13 +57,10 @@ jobs:
       - image: circleci/python:latest
     steps:
       - checkout
-      - when:
-          condition: << pipeline.parameters.triggered-by-cms >>
-          steps:
-            - run:
-                name: Test2
-                command: |
-                         echo "Hello from job test2"
+      - run:
+          name: Test2
+          command: |
+                   echo "Hello from job test2"
 
 
 workflows:
@@ -76,6 +73,7 @@ workflows:
               only:
                 - master
   test2:
+    when: << pipeline.parameters.triggered-by-cms >>
     jobs:
       - test2:
           filters:
