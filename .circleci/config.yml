@@ -9,7 +9,7 @@ parameters:
     default: false
   branch:
     type: enum
-    default: master
+    default: "master"
     enum: ["master", "production"]
 
 jobs:
