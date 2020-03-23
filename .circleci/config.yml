@@ -7,9 +7,9 @@ parameters:
   triggered-by-cms:
     type: boolean
     default: false
-  branch:
-    type: string
-    default: "master"
+  # branch:
+  #   type: string
+  #   default: "master"
 
 jobs:
   test1:
@@ -81,10 +81,7 @@ workflows:
       - test2
   test1-test2:
     jobs:
-      - test1:
-          filters:
-            branches:
-              only: << pipeline.parameters.branch >>
+      - test1
       - test2
 #          filters:
 #            tags:
