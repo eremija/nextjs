@@ -3,6 +3,11 @@ version: 2.1
 workspace_root: &workspace_root
   /tmp/workspace
 
+parameters:
+  triggered-by-cms:
+    type: boolean
+    default: false
+
 jobs:
   test1:
     docker:
@@ -60,18 +65,24 @@ jobs:
 
 workflows:
   version: 2
-  test1-test2:
+  test1:
     jobs:
       - test1:
           filters:
             branches:
               only:
                 - master
+  test2:
+    jobs:
       - test2:
           filters:
             branches:
               only:
                 - production
+  test1-test2:
+    jobs:
+      - test1
+      - test2
 #          filters:
 #            tags:
 #              only:
