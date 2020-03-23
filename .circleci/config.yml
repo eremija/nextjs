@@ -81,7 +81,7 @@ workflows:
       - test2:
           filters:
             branches:
-              only: << pipeline.parameters.branch >>
+              only: production
   test1-test2:
     jobs:
       - test1:
