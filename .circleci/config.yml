@@ -7,6 +7,10 @@ parameters:
   triggered-by-cms:
     type: boolean
     default: false
+  branch:
+    type: enum
+    default: master
+    enum: ["master", "production"]
 
 jobs:
   test1:
@@ -79,7 +83,7 @@ workflows:
           filters:
             branches:
               only:
-                - production
+                - << pipeline.parameters.branch >>
   test1-test2:
     jobs:
       - test1
