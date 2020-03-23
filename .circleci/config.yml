@@ -82,8 +82,7 @@ workflows:
       - test2:
           filters:
             branches:
-              only:
-                - << pipeline.parameters.branch >>
+              only: << pipeline.parameters.branch >>
   test1-test2:
     jobs:
       - test1
