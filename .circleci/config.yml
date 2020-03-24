@@ -25,19 +25,15 @@ jobs:
           command: |
             if [ "${CIRCLECI_USERNAME}" == "" ]; then
               echo "Triggered by publishing content on CMS."
-              echo "${WCO_CONTENT_BACKUP_ID}"
             else
               echo "Normal build."
             fi
 
+
       - run:
           name: Verify the ENV var is present
           command: |
-            if [ -z "${UNIQUE_ID}" ]; then
-              echo "The value of the variables is: ${UNIQUE_ID}"
-            else
-              echo "UNIQUE_ID is not set."
-            fi
+                   echo "${WCO_CONTENT_BACKUP_ID}"
 
       - run:
           name: Export CIRCLE_TAG for use in test2
