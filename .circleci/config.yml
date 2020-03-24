@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Verify the ENV var is present
           command: |
-                   echo "${WCO_CONTENT_BACKUP_ID}"
+                   env
 
       - run:
           name: Export CIRCLE_TAG for use in test2
