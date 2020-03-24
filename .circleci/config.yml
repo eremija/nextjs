@@ -1,5 +1,9 @@
 version: 2.1
 
+orbs:
+  slack: circleci/slack@3.4.2
+  aws-s3: circleci/aws-s3@1.0.15
+
 workspace_root: &workspace_root
   /tmp/workspace
 
@@ -7,9 +11,6 @@ parameters:
   triggered-by-cms:
     type: boolean
     default: false
-  # branch:
-  #   type: string
-  #   default: "master"
 
 jobs:
   test1:
@@ -24,6 +25,7 @@ jobs:
           command: |
             if [ "${CIRCLECI_USERNAME}" == "" ]; then
               echo "Triggered by publishing content on CMS."
+              echo "${WCO_CONTENT_BACKUP_ID}"
             else
               echo "Normal build."
             fi
@@ -36,8 +38,6 @@ jobs:
             else
               echo "UNIQUE_ID is not set."
             fi
-
-
 
       - run:
           name: Export CIRCLE_TAG for use in test2
@@ -59,7 +59,6 @@ jobs:
           name: Test2
           command: |
                    echo "Hello from job test2"
-
 
 workflows:
   version: 2
