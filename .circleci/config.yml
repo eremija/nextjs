@@ -34,7 +34,7 @@ jobs:
           name: Verify the ENV var is present
           command: |
                    echo $TEST
-                   echo "<< pipeline.parameters.wco-content-backup-id >>"
+                   echo << pipeline.parameters.wco-content-backup-id >>
 
       - run:
           name: Export CIRCLE_TAG for use in test2
