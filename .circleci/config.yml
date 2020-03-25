@@ -7,6 +7,9 @@ parameters:
   triggered-by-cms:
     type: boolean
     default: false
+  wco-content-backup-id:
+    type: string
+    default: ""
 
 jobs:
   test1:
@@ -28,7 +31,8 @@ jobs:
       - run:
           name: Verify the ENV var is present
           command: |
-                   env
+                   export $WCO_CONTENT_BACKUP_ID=<< pipeline.parameters.wco-content-backup-id >>
+                   env | grep WCO_CONTENT_BACKUP_ID
 
       - run:
           name: Export CIRCLE_TAG for use in test2
