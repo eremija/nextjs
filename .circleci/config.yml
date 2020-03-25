@@ -15,6 +15,8 @@ jobs:
   test1:
     docker:
       - image: circleci/python:latest
+    environment:
+      TEST: << pipeline.parameters.wco-content-backup-id >>
 
     steps:
       - checkout
@@ -31,8 +33,8 @@ jobs:
       - run:
           name: Verify the ENV var is present
           command: |
-                   export WCO_CONTENT_BACKUP_ID=<< pipeline.parameters.wco-content-backup-id >>
-                   env | grep WCO_CONTENT_BACKUP_ID
+                   echo $TEST
+                   echo "<< pipeline.parameters.wco-content-backup-id >>"
 
       - run:
           name: Export CIRCLE_TAG for use in test2
