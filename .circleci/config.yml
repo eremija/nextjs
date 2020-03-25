@@ -1,9 +1,5 @@
 version: 2.1
 
-orbs:
-  slack: circleci/slack@3.4.2
-  aws-s3: circleci/aws-s3@1.0.15
-
 workspace_root: &workspace_root
   /tmp/workspace
 
@@ -28,7 +24,6 @@ jobs:
             else
               echo "Normal build."
             fi
-
 
       - run:
           name: Verify the ENV var is present
