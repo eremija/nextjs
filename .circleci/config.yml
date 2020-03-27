@@ -11,12 +11,15 @@ parameters:
     type: string
     default: ""
 
+test1-environment: &test1-environment
+  TEST: << pipeline.parameters.wco-content-backup-id >>
+
 jobs:
   test1:
     docker:
       - image: circleci/python:latest
     environment:
-      TEST: << pipeline.parameters.wco-content-backup-id >>
+      <<: *test1-environment
 
     steps:
       - checkout
