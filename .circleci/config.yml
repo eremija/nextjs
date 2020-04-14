@@ -77,6 +77,14 @@ workflows:
             branches:
               only:
                 - production
+  test3:
+    unless: << pipeline.parameters.triggered-by-cms >>
+    jobs:
+      - test2:
+          filters:
+            branches:
+              only:
+                - production
   test1-test2:
     jobs:
       - test1
